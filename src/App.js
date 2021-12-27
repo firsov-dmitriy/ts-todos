@@ -1,6 +1,6 @@
 import React from "react";
-import TodoItems from "./components/TodoItems";
-import FormAddTodo from "./components/FormAddTodo";
+import TodoItems from "./components/TodoList/TodoItems";
+import FormAddTodo from "./components/Form/FormAddTodo";
 import Header from "./components/Header/Header";
 
 function App() {

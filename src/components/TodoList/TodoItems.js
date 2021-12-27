@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import getTodo from "../service/service";
+import getTodo from "../../service/service";
 
 function TodoItems() {
     const [todos, setTodos] = useState([]);
@@ -10,7 +10,7 @@ function TodoItems() {
             .catch((err) => console.error(err));
     });
     const removeItem = (eve) => {
-        console.log(eve.target.parentElement.key);
+        console.log(eve.target.parentElement);
     };
 
     return (
