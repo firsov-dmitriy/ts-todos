@@ -1,32 +1,25 @@
-import React, { useEffect, useState } from "react";
-import getTodo from "../../service/service";
+import React, { useEffect } from "react";
+
+import FormAddTodo from "../Form/FormAddTodo";
+import { useSelector } from "react-redux";
 
 function TodoItems() {
-    const [todos, setTodos] = useState([]);
+    const dispatch = useDispatch(function)
+    const todos = useSelector((state) => state.todos);
 
     useEffect(() => {
-        getTodo("https://jsonplaceholder.typicode.com/todos")
-            .then((data) => setTodos(data))
-            .catch((err) => console.error(err));
+        dis
     });
-    const removeItem = (eve) => {
-        console.log(eve.target.parentElement);
-    };
 
     return (
-        <ul className="list-group">
-            {todos.map((todo) => (
-                <li className="list-group-item d-inline-flex" key={todo.id}>
-                    {todo.title.toUpperCase()}
-                    <button
-                        onClick={(eve) => removeItem(eve)}
-                        type="button"
-                        className="btn-close"
-                        aria-label="Close"
-                    ></button>
-                </li>
-            ))}
-        </ul>
+        <div>
+            <FormAddTodo />
+            <ul className="list-group">
+                {todos.map((todo) => (
+                    <li key={todo.id}>{todo.title}</li>
+                ))}
+            </ul>
+        </div>
     );
 }
 
