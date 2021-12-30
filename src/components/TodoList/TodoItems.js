@@ -1,14 +1,18 @@
 import React, { useEffect } from "react";
 
 import FormAddTodo from "../Form/FormAddTodo";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addTodo } from "../../redux/reducers/reducer";
+import getTodo from "../../service/service";
 
 function TodoItems() {
-    const dispatch = useDispatch(function)
+    const dispatch = useDispatch(addTodo());
     const todos = useSelector((state) => state.todos);
 
     useEffect(() => {
-        dis
+        getTodo("https://jsonplaceholder.typicode.com/todos").then((data) =>
+            dispatch(data)
+        );
     });
 
     return (
